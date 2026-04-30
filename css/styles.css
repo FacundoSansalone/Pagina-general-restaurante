@@ -2,16 +2,16 @@
        VARIABLES CSS — PERSONALIZAR AQUÍ
        ========================================== */
     :root {
-      --nombre-restaurante: "La Trattoria";
-      --color-primario:   #C65D3A;   /* Terracota */
-      --color-secundario: #6B7C45;   /* Verde oliva */
-      --color-dorado:     #D4A853;
-      --color-fondo:      #FAF8F5;
+      --nombre-restaurante: "El Comodín";
+      --color-primario:   #D42B2B;
+      --color-secundario: #E8730A;
+      --color-dorado:     #F5C400;
+      --color-fondo:      #FFF8F0;
       --color-texto:      #1A1A1A;
       --color-gris:       #6B6B6B;
       --color-blanco:     #FFFFFF;
-      --color-oscuro:     #111111;
-      --whatsapp-numero:  "5491112345678";
+      --color-oscuro:     #1A0A00;
+      --whatsapp-numero:  "59899474860";
       --font-titulo:      'Playfair Display', serif;
       --font-cuerpo:      'Lato', sans-serif;
       --sombra-card:      0 4px 24px rgba(0,0,0,0.08);
@@ -121,10 +121,10 @@
     }
 
     .btn-primario:hover {
-      background-color: #a84b2a;
-      border-color: #a84b2a;
+      background-color: #b01f1f;
+      border-color: #b01f1f;
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(198, 93, 58, 0.35);
+      box-shadow: 0 6px 20px rgba(212, 43, 43, 0.35);
     }
 
     .btn-outline {
@@ -203,7 +203,7 @@
     }
 
     #navbar.scrolled {
-      background: rgba(26, 26, 26, 0.97);
+      background: rgba(26, 10, 0, 0.97);
       padding: 12px 0;
       box-shadow: 0 2px 20px rgba(0,0,0,0.25);
     }
@@ -397,8 +397,8 @@
 
     .hero-badge {
       display: inline-block;
-      background: rgba(212, 168, 83, 0.2);
-      border: 1px solid rgba(212, 168, 83, 0.5);
+      background: rgba(245, 196, 0, 0.2);
+      border: 1px solid rgba(245, 196, 0, 0.5);
       color: var(--color-dorado);
       font-size: 0.78rem;
       font-weight: 700;
@@ -1581,3 +1581,16 @@
         max-width: 300px;
       }
     }
+
+    /* PROMOS */
+    #promos { background: #1A0A00; padding: 90px 0; }
+    #promos .titulo-seccion { color: #FFFFFF; }
+    #promos .etiqueta-seccion { color: #F5C400; }
+    .promos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .promo-card { background: linear-gradient(135deg, #D42B2B, #E8730A); border-radius: 16px; padding: 32px 24px; text-align: center; color: #fff; }
+    .promo-numero { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.8; margin-bottom: 8px; }
+    .promo-nombre { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; }
+    .promo-descripcion { font-size: 0.85rem; opacity: 0.9; margin-bottom: 20px; line-height: 1.5; }
+    .promo-precio { font-size: 2.2rem; font-weight: 900; color: #F5C400; }
+    @media (max-width: 768px) { .promos-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .promos-grid { grid-template-columns: 1fr; } }
