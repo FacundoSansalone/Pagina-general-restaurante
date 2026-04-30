@@ -6,17 +6,18 @@
       --color-primario:   #D42B2B;
       --color-secundario: #E8730A;
       --color-dorado:     #F5C400;
-      --color-fondo:      #FFF8F0;
-      --color-texto:      #1A1A1A;
-      --color-gris:       #6B6B6B;
+      --color-fondo:      #1C1008;
+      --color-fondo-claro: #2A1810;
+      --color-texto:      #F0E8DF;
+      --color-gris:       #A89080;
       --color-blanco:     #FFFFFF;
-      --color-oscuro:     #1A0A00;
+      --color-oscuro:     #0E0604;
       --whatsapp-numero:  "59899474860";
       --font-titulo:      'Playfair Display', serif;
       --font-cuerpo:      'Lato', sans-serif;
-      --sombra-card:      0 4px 24px rgba(0,0,0,0.08);
-      --sombra-hover:     0 8px 40px rgba(0,0,0,0.14);
-      --radius:           12px;
+      --sombra-card:      0 4px 24px rgba(0,0,0,0.4);
+      --sombra-hover:     0 8px 40px rgba(212,43,43,0.25);
+      --radius:           10px;
       --transicion:       0.3s ease;
     }
 
@@ -40,6 +41,11 @@
       color: var(--color-texto);
       line-height: 1.7;
       overflow-x: hidden;
+    }
+
+    /* Fondo oscuro para todas las secciones por defecto */
+    section {
+      background: var(--color-fondo);
     }
 
     img {
@@ -71,29 +77,33 @@
        ========================================== */
     .titulo-seccion {
       font-family: var(--font-titulo);
-      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 700;
       color: var(--color-texto);
-      line-height: 1.2;
+      line-height: 1.15;
       margin-bottom: 16px;
     }
 
     .subtitulo-seccion {
       font-size: 1.05rem;
       color: var(--color-gris);
-      font-weight: 300;
+      font-weight: 400;
       max-width: 560px;
       margin-bottom: 48px;
     }
 
     .etiqueta-seccion {
       display: inline-block;
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       font-weight: 700;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--color-primario);
+      color: var(--color-dorado);
       margin-bottom: 12px;
+      background: rgba(245,196,0,0.12);
+      padding: 4px 14px;
+      border-radius: 4px;
+      border-left: 3px solid var(--color-dorado);
     }
 
     /* ==========================================
@@ -197,15 +207,18 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      padding: 20px 0;
+      padding: 10px 0;
       transition: background var(--transicion), padding var(--transicion), box-shadow var(--transicion);
-      background: transparent;
+      background: rgba(14, 6, 4, 0.92);
+      border-bottom: 2px solid rgba(212,43,43,0.4);
+      backdrop-filter: blur(8px);
     }
 
     #navbar.scrolled {
-      background: rgba(26, 10, 0, 0.97);
-      padding: 12px 0;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+      background: rgba(14, 6, 4, 0.98);
+      padding: 8px 0;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.6);
+      border-bottom-color: var(--color-primario);
     }
 
     .navbar-inner {
@@ -216,16 +229,66 @@
     }
 
     .navbar-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       font-family: var(--font-titulo);
-      font-size: 1.55rem;
+      font-size: 1.45rem;
       font-weight: 700;
       color: var(--color-blanco);
       letter-spacing: 0.02em;
       flex-shrink: 0;
     }
 
-    .navbar-logo span {
+    .navbar-logo-img {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2.5px solid var(--color-dorado);
+      flex-shrink: 0;
+      box-shadow: 0 0 12px rgba(245,196,0,0.3);
+    }
+
+    .navbar-logo-fallback {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      border: 2.5px solid var(--color-dorado);
+      flex-shrink: 0;
+      background: linear-gradient(135deg, #D42B2B, #E8730A);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 0 12px rgba(245,196,0,0.3);
+    }
+
+    .navbar-logo-texto {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .navbar-logo-texto .nombre-top {
+      font-size: 0.7rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .navbar-logo-texto .nombre-main {
       color: var(--color-dorado);
+      font-size: 1.45rem;
+    }
+
+    .navbar-logo-texto .nombre-sub {
+      font-size: 0.65rem;
+      font-weight: 400;
+      color: var(--color-secundario);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
 
     .navbar-nav {
@@ -365,9 +428,9 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&q=80');
+      background-image: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1920&q=85');
       background-size: cover;
-      background-position: center;
+      background-position: center 40%;
       background-attachment: fixed;
       transform: scale(1.05);
       transition: transform 8s ease;
@@ -381,10 +444,10 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(
-        to bottom,
-        rgba(10, 10, 10, 0.6) 0%,
-        rgba(10, 10, 10, 0.45) 50%,
-        rgba(10, 10, 10, 0.7) 100%
+        160deg,
+        rgba(14, 6, 4, 0.82) 0%,
+        rgba(140, 20, 20, 0.35) 50%,
+        rgba(14, 6, 4, 0.88) 100%
       );
     }
 
@@ -411,17 +474,18 @@
 
     .hero-titulo {
       font-family: var(--font-titulo);
-      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-size: clamp(2.8rem, 7vw, 5rem);
       font-weight: 700;
       color: var(--color-blanco);
-      line-height: 1.15;
+      line-height: 1.1;
       margin-bottom: 20px;
-      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+      text-shadow: 0 4px 32px rgba(0,0,0,0.7);
     }
 
     .hero-titulo em {
       font-style: italic;
       color: var(--color-dorado);
+      text-shadow: 0 0 40px rgba(245,196,0,0.4);
     }
 
     .hero-subtitulo {
@@ -473,7 +537,7 @@
        3. SOBRE NOSOTROS
        ========================================== */
     #nosotros {
-      background: var(--color-blanco);
+      background: var(--color-fondo-claro);
     }
 
     .nosotros-grid {
@@ -486,7 +550,7 @@
     .nosotros-texto p {
       color: var(--color-gris);
       margin-bottom: 18px;
-      font-size: 0.97rem;
+      font-size: 1rem;
       line-height: 1.8;
     }
 
@@ -514,7 +578,7 @@
       display: block;
       font-size: 0.92rem;
       font-weight: 700;
-      color: var(--color-texto);
+      color: var(--color-dorado);
       margin-bottom: 2px;
     }
 
@@ -566,6 +630,7 @@
     #caracteristicas {
       background: var(--color-fondo);
     }
+    #caracteristicas .titulo-seccion { color: var(--color-texto); }
 
     .caracteristicas-header {
       text-align: center;
@@ -583,12 +648,13 @@
     }
 
     .caract-card {
-      background: var(--color-blanco);
+      background: var(--color-fondo-claro);
       border-radius: var(--radius);
       padding: 36px 28px;
       text-align: center;
       box-shadow: var(--sombra-card);
       transition: transform var(--transicion), box-shadow var(--transicion);
+      border: 1px solid rgba(212,43,43,0.15);
       border-bottom: 3px solid transparent;
     }
 
@@ -596,10 +662,11 @@
       transform: translateY(-6px);
       box-shadow: var(--sombra-hover);
       border-bottom-color: var(--color-primario);
+      border-color: rgba(212,43,43,0.4);
     }
 
     .caract-icono {
-      font-size: 2.6rem;
+      font-size: 2.8rem;
       margin-bottom: 16px;
       display: block;
       line-height: 1;
@@ -608,7 +675,7 @@
     .caract-card h3 {
       font-family: var(--font-titulo);
       font-size: 1.1rem;
-      font-weight: 600;
+      font-weight: 700;
       margin-bottom: 10px;
       color: var(--color-texto);
     }
@@ -623,7 +690,7 @@
        5. MENÚ
        ========================================== */
     #menu {
-      background: var(--color-blanco);
+      background: var(--color-fondo-claro);
     }
 
     .menu-header {
@@ -646,20 +713,23 @@
 
     .menu-tab {
       padding: 10px 22px;
-      border-radius: 50px;
+      border-radius: 6px;
       font-size: 0.88rem;
       font-weight: 700;
       cursor: pointer;
-      background: var(--color-fondo);
+      background: rgba(255,255,255,0.05);
       color: var(--color-gris);
-      border: 2px solid transparent;
+      border: 1px solid rgba(255,255,255,0.1);
       transition: all var(--transicion);
       font-family: var(--font-cuerpo);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
 
     .menu-tab:hover {
-      color: var(--color-primario);
-      border-color: var(--color-primario);
+      color: var(--color-dorado);
+      border-color: var(--color-dorado);
+      background: rgba(245,196,0,0.08);
     }
 
     .menu-tab.activo {
@@ -690,19 +760,21 @@
     }
 
     .menu-item {
-      background: var(--color-fondo);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: var(--radius);
-      padding: 22px 24px;
+      padding: 20px 22px;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       gap: 16px;
-      transition: box-shadow var(--transicion), transform var(--transicion);
+      transition: box-shadow var(--transicion), transform var(--transicion), border-color var(--transicion);
     }
 
     .menu-item:hover {
-      box-shadow: var(--sombra-card);
+      box-shadow: var(--sombra-hover);
       transform: translateY(-2px);
+      border-color: rgba(212,43,43,0.4);
     }
 
     .menu-item-info {
@@ -771,6 +843,7 @@
     #destacados {
       background: var(--color-fondo);
     }
+    #destacados .titulo-seccion { color: var(--color-texto); }
 
     .destacados-header {
       text-align: center;
@@ -788,11 +861,15 @@
     }
 
     .destacado-card {
-      background: var(--color-blanco);
+      background: var(--color-fondo-claro);
+      border: 1px solid rgba(212,43,43,0.2);
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--sombra-card);
-      transition: transform var(--transicion), box-shadow var(--transicion);
+      transition: transform var(--transicion), box-shadow var(--transicion), border-color var(--transicion);
+    }
+    .destacado-card:hover {
+      border-color: var(--color-primario);
     }
 
     .destacado-card:hover {
@@ -882,7 +959,7 @@
        7. GALERÍA
        ========================================== */
     #galeria {
-      background: var(--color-texto);
+      background: var(--color-oscuro);
       padding: 90px 0;
     }
 
@@ -892,11 +969,7 @@
     }
 
     .galeria-header .titulo-seccion {
-      color: var(--color-blanco);
-    }
-
-    .galeria-header .etiqueta-seccion {
-      color: var(--color-dorado);
+      color: var(--color-texto);
     }
 
     .galeria-grid {
@@ -985,8 +1058,8 @@
       justify-content: space-between;
       align-items: center;
       padding: 14px 20px;
-      background: var(--color-blanco);
-      border-bottom: 1px solid rgba(0,0,0,0.05);
+      background: rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
       font-size: 0.92rem;
     }
 
@@ -995,7 +1068,7 @@
     }
 
     .horario-fila:nth-child(odd) {
-      background: #f7f5f2;
+      background: rgba(255,255,255,0.08);
     }
 
     .horario-dia {
@@ -1009,12 +1082,12 @@
     }
 
     .horario-abierto {
-      color: var(--color-secundario);
+      color: #4ade80;
       font-weight: 700;
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      background: rgba(107,124,69,0.1);
+      background: rgba(74,222,128,0.12);
       padding: 3px 10px;
       border-radius: 50px;
     }
@@ -1034,21 +1107,21 @@
     .contacto-icono {
       width: 44px;
       height: 44px;
-      background: var(--color-blanco);
+      background: rgba(212,43,43,0.15);
+      border: 1px solid rgba(212,43,43,0.3);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
       font-size: 1.2rem;
-      box-shadow: var(--sombra-card);
     }
 
     .contacto-info strong {
       display: block;
       font-size: 0.85rem;
       font-weight: 700;
-      color: var(--color-texto);
+      color: var(--color-dorado);
       margin-bottom: 2px;
     }
 
@@ -1066,12 +1139,11 @@
 
     .servicio-pill {
       padding: 6px 16px;
-      background: var(--color-blanco);
-      border: 1px solid rgba(0,0,0,0.1);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
       border-radius: 50px;
       font-size: 0.82rem;
       color: var(--color-gris);
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
     }
 
     .pagos-iconos {
@@ -1140,7 +1212,7 @@
        10. CONTACTO / RESERVAS
        ========================================== */
     #contacto {
-      background: var(--color-blanco);
+      background: var(--color-fondo-claro);
     }
 
     .contacto-grid {
@@ -1194,7 +1266,8 @@
 
     /* Formulario */
     .contacto-form {
-      background: var(--color-fondo);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: var(--radius);
       padding: 36px;
       box-shadow: var(--sombra-card);
@@ -1215,7 +1288,7 @@
       display: block;
       font-size: 0.85rem;
       font-weight: 700;
-      color: var(--color-texto);
+      color: var(--color-gris);
       margin-bottom: 6px;
     }
 
@@ -1224,15 +1297,25 @@
     .form-group textarea {
       width: 100%;
       padding: 12px 16px;
-      border: 2px solid rgba(0,0,0,0.08);
+      border: 2px solid rgba(255,255,255,0.1);
       border-radius: 8px;
       font-family: var(--font-cuerpo);
       font-size: 0.93rem;
       color: var(--color-texto);
-      background: var(--color-blanco);
+      background: rgba(255,255,255,0.06);
       transition: border-color var(--transicion);
       outline: none;
       appearance: none;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(168,144,128,0.6);
+    }
+
+    .form-group select option {
+      background: var(--color-fondo-claro);
+      color: var(--color-texto);
     }
 
     .form-group input:focus,
