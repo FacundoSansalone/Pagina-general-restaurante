@@ -177,7 +177,7 @@
         }
         textoWA += '\n¡Muchas gracias!';
 
-        var urlWA = 'https://wa.me/5491112345678?text=' + encodeURIComponent(textoWA);
+        var urlWA = 'https://wa.me/59899123456?text=' + encodeURIComponent(textoWA);
         window.open(urlWA, '_blank', 'noopener,noreferrer');
       });
     })();
